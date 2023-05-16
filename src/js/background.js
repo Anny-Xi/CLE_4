@@ -46,7 +46,7 @@ export class Background extends Actor {
         this.graphics.add(group) 
 
         this.pos = new Vector(0, 0)
-        this.vel = new Vector(-100, 0)
+        this.vel = new Vector(-90, 0)
 
     }
 
