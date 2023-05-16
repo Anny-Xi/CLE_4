@@ -17,7 +17,7 @@ export class Player extends Actor {
         // test of alle sprites er zijn
         console.log(idleSheet.sprites);
 
-        const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 80) //idle animatie
+        const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 70) //idle animatie
         // const runLeft = Animation.fromSpriteSheet(runSheet, range(1, 10), 80);
         // const runRight = Animation.fromSpriteSheet(runSheet, range(11, 20), 80);
 

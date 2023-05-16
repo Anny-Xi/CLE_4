@@ -51,7 +51,7 @@ export class Background extends Actor {
     }
 
     onPostUpdate(engine, delta) {
-        if (this.pos.x < -this.offset) {
+        if (this.pos.x < -1000) {
             this.pos = new Vector(0, 0)
         }
     }
