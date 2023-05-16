@@ -13,15 +13,17 @@ export class Game extends Engine {
     constructor() {
         super({ width: 1000, height: 700 }) //background 550 , ground 150
         this.start(ResourceLoader).then(() => this.startGame())
+        // this.showDebug(true)
+
+
     }
 
     startGame() {
 
         console.log("start de game!")
 
-        const background1 = new Background()
-        background1.position = new Vector(-1000,0)
-        this.add(background1)
+        const background = new Background()
+        this.add(background)
 
         const player = new Player()
         this.add(player)

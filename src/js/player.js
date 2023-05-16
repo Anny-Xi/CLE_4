@@ -32,7 +32,7 @@ export class Player extends Actor {
     onInitialize(engine) {
 
         // this.anchor = new Vector(0, 0)
-        this.pos = new Vector(100, 500)
+        this.pos = new Vector(100, 530)
         this.vel = new Vector(0, 0)
         // this.scale = new Vector(3.0, 3.0) //scale of the image, (1.0, 1.0) = 100%
         // this.graphics.use(Resources.Player.toSprite())
