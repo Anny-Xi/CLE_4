@@ -14,11 +14,9 @@ import { Resources, ResourceLoader } from './resources.js'
 
 export class Background extends Actor {
 
-    position
-
     constructor() {
 
-        super({ width: Resources.Background.width, height: Resources.Background.height })
+        super({ width: Resources.Background.width, height: Resources.Background.height, z:-10 })
 
         // this.pos = new Vector(400, 300)
         // the venter of the image position  400 is the half of the window with 

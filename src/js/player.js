@@ -1,13 +1,31 @@
-import { Actor, Vector, SpriteSheet, Animation, range } from "excalibur"
+import { Actor, Vector, SpriteSheet, Animation, range, Input, Collider, CollisionType,collision } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 
 export class Player extends Actor {
+
+    onGround = true;
+    jumped = false;
+
+
+    // class Game object extends Actor
+
+
+    //colider? 
+    //collision start
+        // collide uithallen -> contact -> local point
+
+
+    // collisionType 
+        // active -> involved
+        // fixed -> vast
+        // passive -> no effect but does trigger
+
+    //useGrafity -> false 
+        // will be involved
+
     constructor() {
 
-        super({ width: Resources.Player.width, height: Resources.Player.height })
-
-        // this.pos = new Vector(400, 300)
-        // the venter of the image position  400 is the half of the window with 
+        super({ width: 85, height: 100 })
 
         const idleSheet = SpriteSheet.fromImageSource({
             image: Resources.Player,
@@ -18,13 +36,8 @@ export class Player extends Actor {
         console.log(idleSheet.sprites);
 
         const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 70) //idle animatie
-        // const runLeft = Animation.fromSpriteSheet(runSheet, range(1, 10), 80);
-        // const runRight = Animation.fromSpriteSheet(runSheet, range(11, 20), 80);
 
         this.graphics.add("idle", idle);
-        // this.graphics.add("runleft", runLeft);
-        // this.graphics.add("runright", runRight);
-
         this.graphics.use(idle);
 
     }
@@ -32,14 +45,34 @@ export class Player extends Actor {
     onInitialize(engine) {
 
         // this.anchor = new Vector(0, 0)
-        this.pos = new Vector(100, 530)
+        this.pos = new Vector(100, 200)
         this.vel = new Vector(0, 0)
-        // this.scale = new Vector(3.0, 3.0) //scale of the image, (1.0, 1.0) = 100%
-        // this.graphics.use(Resources.Player.toSprite())
+
+        this.body.collisionType = CollisionType.Active
+        this.body.useGravity = true
+        this.body.friction = .99
 
     }
 
-    onPostUpdate(engine){
+    onPostUpdate(engine) {
         this.graphics.use("idle")
     }
+
+    onPreUpdate(engine) {
+
+        this.vel.x = 0;
+
+        if (engine.input.keyboard.isHeld(Input.Keys.Space)) {
+            this.vel.y = -400;
+        }
+    }
+
+    //No dobbule jump
+    collisionCheck(collisionEvent, collisionString){
+        console.log(collisionEvent)
+    }
+    
+
+    //reset posistion
+
 }
